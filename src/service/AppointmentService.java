@@ -8,19 +8,33 @@ public class AppointmentService {
     private LinkedList<String> appointments = new LinkedList<>();
 
     public void initializeAppointments() {
-        // TODO: Add 3 normal appointments
-        // TODO: Add 1 urgent appointment at the beginning
+        appointments.add("Advisor Meeting - Nurbek");
+        appointments.add("Course Planning - Aizada");
+        appointments.add("Scholarship Review - Ermek");
+        appointments.addFirst("URGENT: Academic Probation - Gulnura");
     }
 
     public void cancelLast() {
-        // TODO: Remove last appointment
+        if (!appointments.isEmpty()) {
+            appointments.removeLast();
+        }
     }
 
     public void showFirstAndLast() {
-        // TODO: Print first and last appointment
+        if (appointments.isEmpty()) {
+            System.out.println("No appointments available.");
+            return;
+        }
+
+        System.out.println("First appointment: " + appointments.getFirst());
+        System.out.println("Last appointment: " + appointments.getLast());
     }
 
     public void printAppointments() {
-        // TODO: Traverse using Iterator
+        System.out.println("Appointments:");
+        Iterator<String> iterator = appointments.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
     }
 }
